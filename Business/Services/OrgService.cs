@@ -14,11 +14,7 @@ namespace Auth.Business.Services
         }
         public Org Create(Org entity)
         {
-            throw new NotImplementedException();
-        }
-        public void Delete(Org entity)
-        {
-            throw new NotImplementedException();
+            return _unitOfWork.Orgs.Add(entity);
         }
         public async Task<IEnumerable<Org>> GetAll()
         {
@@ -26,11 +22,15 @@ namespace Auth.Business.Services
         }
         public async Task<Org> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _unitOfWork.Orgs.GetById(id);
         }
         public void Update(Org entity)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Orgs.Update(entity);  
+        }
+        public void Delete(Org entity)
+        {
+            _unitOfWork.Orgs.Delete(entity);   
         }
     }
 }
