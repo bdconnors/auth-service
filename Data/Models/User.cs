@@ -10,6 +10,6 @@
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public Org Org { get; set; }
-        public virtual ICollection<UserSiteRole> SiteRoles { get; set; }
+        public virtual ICollection<SiteRole> SiteRoles { get; set; }
     }
 }

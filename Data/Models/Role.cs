@@ -4,7 +4,6 @@
     {
         public Role()
         {
-            this.Sites = new HashSet<Site>();
             this.Permissions = new HashSet<Permission>();
         }
         public int Id { get; set; }
@@ -14,7 +13,6 @@
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        public virtual ICollection<Site> Sites { get; set; }
         public virtual ICollection<Permission> Permissions { get; set; }
     }
 }

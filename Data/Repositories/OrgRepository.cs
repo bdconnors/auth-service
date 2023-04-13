@@ -1,5 +1,6 @@
 ﻿using Auth.Data.Interfaces;
 using Auth.Data.Models;
+using System.Data.Entity;
 
 namespace Auth.Data.Repositories
 {
@@ -7,7 +8,11 @@ namespace Auth.Data.Repositories
     {
         public OrgRepository(Context dbContext) : base(dbContext)
         {
-
+      
+        }
+        public new async Task<IEnumerable<Org>> GetAll()
+        {
+            return await _dbContext.Set<Org>().Include(org => org.Sites).ToListAsync();
         }
     }
 }
