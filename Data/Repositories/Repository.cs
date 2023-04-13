@@ -12,27 +12,22 @@ namespace Auth.Data.Repositories
         {
             _dbContext = context;
         }
-
         public async Task<T> GetById(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
-
         public async Task<IEnumerable<T>> GetAll()
         {
             return await _dbContext.Set<T>().ToListAsync();
         }
-
         public T Add(T entity)
         {
             return _dbContext.Set<T>().Add(entity);
         }
-
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
         }
-
         public void Update(T entity)
         {
             _dbContext.Set<T>().AddOrUpdate(entity);

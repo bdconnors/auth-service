@@ -20,11 +20,11 @@ namespace Auth.Business.Services
         {
             throw new NotImplementedException();
         }
-        public Task<IEnumerable<Org>> GetAll()
+        public async Task<IEnumerable<Org>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _unitOfWork.Orgs.GetAll();
         }
-        public Task<Org> GetById(int id)
+        public async Task<Org> GetById(int id)
         {
             throw new NotImplementedException();
         }
