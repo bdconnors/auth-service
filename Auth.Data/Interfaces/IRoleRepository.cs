@@ -2,5 +2,8 @@
 
 namespace Auth.Data.Interfaces
 {
-    public interface IRoleRepository : IRepository<Role> {}
+    public interface IRoleRepository : IRepository<Role> 
+    {
+        IEnumerable<Role> GetDefaultRoles();
+    }
 }

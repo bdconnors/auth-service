@@ -20,9 +20,15 @@ namespace Auth.Data.Repositories
         {
             return await _dbContext.Set<T>().ToListAsync();
         }
+        public IEnumerable<T> Filter(Func<T, bool> predicate)
+        {
+            return _dbContext.Set<T>().Where(predicate).ToList();
+        }
         public T Add(T entity)
         {
-            return _dbContext.Set<T>().Add(entity);
+            var ent = _dbContext.Set<T>().Add(entity);
+            _dbContext.SaveChanges();
+            return ent;
         }
         public void Delete(T entity)
         {

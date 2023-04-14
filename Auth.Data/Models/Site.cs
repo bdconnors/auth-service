@@ -12,5 +12,6 @@
         public DateTime UpdatedAt { get; set; }
         public Org Org { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

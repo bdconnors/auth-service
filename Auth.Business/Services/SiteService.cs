@@ -4,28 +4,36 @@ using Auth.Data.Models;
 
 namespace Auth.Business.Services
 {
-    public class OrgService : IOrgService
+    public class SiteService : ISiteService
     {
         public IUnitOfWork _unitOfWork;
 
-        public OrgService(IUnitOfWork unitOfWork)
+        public SiteService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public Org Create(string name)
+        public Site Create(int orgId, string name)
         {
-            Org org = new Org()
+            Site site = new Site()
             {
                 Name = name,
+                Org = new Org()
+                {
+                    Id = orgId,
+                },
+                Roles = _unitOfWork.Roles.GetDefaultRoles().ToList(),
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
-            return _unitOfWork.Orgs.Add(org);
+            return _unitOfWork.Sites.Add(site);
+
         }
-        public async Task<IEnumerable<Org>> GetAll()
+        public async Task<IEnumerable<Site>> GetAll()
         {
-            return await _unitOfWork.Orgs.GetAll();
+            return await _unitOfWork.Sites.GetAll();
         }
+
+
         /** public async Task<Org> GetById(int id)
         {
             return await _unitOfWork.Orgs.GetById(id);
