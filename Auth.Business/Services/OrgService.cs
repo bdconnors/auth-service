@@ -4,7 +4,7 @@ using Auth.Data.Models;
 
 namespace Auth.Business.Services
 {
-    public class OrgService : IService<Org>, IOrgService
+    public class OrgService : IOrgService
     {
         public IUnitOfWork _unitOfWork;
 
@@ -12,15 +12,17 @@ namespace Auth.Business.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public Org Create(Org entity)
+        public Org Create(string name)
         {
-            return _unitOfWork.Orgs.Add(entity);
+            Org org = new Org();
+            org.Name = name;
+            return _unitOfWork.Orgs.Add(org);
         }
         public async Task<IEnumerable<Org>> GetAll()
         {
             return await _unitOfWork.Orgs.GetAll();
         }
-        public async Task<Org> GetById(int id)
+        /** public async Task<Org> GetById(int id)
         {
             return await _unitOfWork.Orgs.GetById(id);
         }
@@ -31,6 +33,6 @@ namespace Auth.Business.Services
         public void Delete(Org entity)
         {
             _unitOfWork.Orgs.Delete(entity);   
-        }
+        }**/
     }
 }

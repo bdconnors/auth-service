@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Auth.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class OrgController : ControllerBase
     {
         public readonly IOrgService _service;
@@ -18,6 +18,13 @@ namespace Auth.Controllers
         public async Task<IEnumerable<Org>> GetOrgList()
         {
             return await _service.GetAll();
+        }
+
+
+        [HttpPost]
+        public Org CreateOrg([FromBody] CreateOrgDto data)
+        {
+            return _service.Create(data.Name);
         }
     }
 }

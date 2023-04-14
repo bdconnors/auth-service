@@ -2,8 +2,9 @@
 
 namespace Auth.Business.Interfaces
 {
-    public interface IOrgService : IService<Org>
+    public interface IOrgService
     {
-
+        Org Create(string name);
+        Task<IEnumerable<Org>> GetAll();
     }
 }
