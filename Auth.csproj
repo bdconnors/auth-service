@@ -9,8 +9,12 @@
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16" />
-    <PackageReference Include="Microsoft.Configuration.ConfigurationBuilders.Json" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Auth.Business\Auth.Business.csproj" />
+    <ProjectReference Include="..\Auth.Data\Auth.Data.csproj" />
   </ItemGroup>
 
 </Project>
