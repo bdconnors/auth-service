@@ -15,8 +15,8 @@ namespace Auth.Data
         public DbSet<SiteRole> SiteRoles { get; set; }
         public Context(IConfiguration configuration) : base(configuration.GetConnectionString("Auth"))
         {
-        
-       }
+            Database.SetInitializer(new DatabaseInitializer());
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Org>().HasMany(org => org.Sites);
