@@ -24,25 +24,10 @@ namespace Auth.Business.Services
             org.Sites.Add(site);
 
             return _unitOfWork.Sites.Add(site);
-
         }
         public async Task<IEnumerable<Site>> GetAll()
         {
             return await _unitOfWork.Sites.GetAll();
         }
-
-
-        /** public async Task<Org> GetById(int id)
-        {
-            return await _unitOfWork.Orgs.GetById(id);
-        }
-        public void Update(Org entity)
-        {
-            _unitOfWork.Orgs.Update(entity);  
-        }
-        public void Delete(Org entity)
-        {
-            _unitOfWork.Orgs.Delete(entity);   
-        }**/
     }
 }

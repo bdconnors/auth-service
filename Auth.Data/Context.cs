@@ -24,7 +24,6 @@ namespace Auth.Data
             modelBuilder.Entity<Site>().HasMany(site => site.Roles);
             modelBuilder.Entity<Site>().HasMany(site => site.Users);
 
-
             modelBuilder.Entity<User>().HasMany(user => user.Sites);
             modelBuilder.Entity<User>().HasMany(user => user.Roles);
 

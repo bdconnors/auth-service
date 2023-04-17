@@ -14,29 +14,16 @@ namespace Auth.Business.Services
         }
         public Org Create(string name)
         {
-            Org org = new Org()
-            {
-                Name = name,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
+            Org org = new Org();
+            org.Name = name;
+            org.CreatedAt = DateTime.Now;
+            org.UpdatedAt = DateTime.Now;
+
             return _unitOfWork.Orgs.Add(org);
         }
         public async Task<IEnumerable<Org>> GetAll()
         {
             return await _unitOfWork.Orgs.GetAll();
         }
-        /** public async Task<Org> GetById(int id)
-        {
-            return await _unitOfWork.Orgs.GetById(id);
-        }
-        public void Update(Org entity)
-        {
-            _unitOfWork.Orgs.Update(entity);  
-        }
-        public void Delete(Org entity)
-        {
-            _unitOfWork.Orgs.Delete(entity);   
-        }**/
     }
 }
