@@ -21,7 +21,6 @@ namespace Auth.Data
 
             modelBuilder.Entity<Org>().HasMany(org => org.Sites);
 
-            modelBuilder.Entity<Site>().HasRequired(site => site.Org);
             modelBuilder.Entity<Site>().HasMany(site => site.Roles);
             modelBuilder.Entity<Site>().HasMany(site => site.Users);
 

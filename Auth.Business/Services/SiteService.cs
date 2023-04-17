@@ -12,15 +12,16 @@ namespace Auth.Business.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public Site Create(int orgId, string name)
+        public async Task<Site> Create(int orgId, string name)
         {
             Site site = new Site();
             site.Name = name;
-            site.Org = new Org();
-            site.Org.Id = orgId;
             site.Roles = _unitOfWork.Roles.GetDefaultRoles().ToList();
             site.CreatedAt = DateTime.Now;
             site.UpdatedAt = DateTime.Now;
+
+            Org org = await _unitOfWork.Orgs.GetById(orgId);
+            org.Sites.Add(site);
 
             return _unitOfWork.Sites.Add(site);
 

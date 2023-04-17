@@ -20,9 +20,9 @@ namespace Auth.Controllers
             return await _service.GetAll();
         }
         [HttpPost]
-        public Site CreateSite([FromBody] CreateSiteDto data)
+        public async Task<Site> CreateSite([FromBody] CreateSiteDto data)
         {
-            return _service.Create(data.OrgId, data.Name);
+            return await _service.Create(data.OrgId, data.Name);
         }
     }
 }
