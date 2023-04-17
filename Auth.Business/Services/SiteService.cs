@@ -14,17 +14,14 @@ namespace Auth.Business.Services
         }
         public Site Create(int orgId, string name)
         {
-            Site site = new Site()
-            {
-                Name = name,
-                Org = new Org()
-                {
-                    Id = orgId,
-                },
-                Roles = _unitOfWork.Roles.GetDefaultRoles().ToList(),
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
+            Site site = new Site();
+            site.Name = name;
+            site.Org = new Org();
+            site.Org.Id = orgId;
+            site.Roles = _unitOfWork.Roles.GetDefaultRoles().ToList();
+            site.CreatedAt = DateTime.Now;
+            site.UpdatedAt = DateTime.Now;
+
             return _unitOfWork.Sites.Add(site);
 
         }

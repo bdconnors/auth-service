@@ -7,45 +7,16 @@ namespace Auth.Data
     {
         protected override void Seed(Context context)
         {
-            Permission create = new Permission() 
-            { 
-                Title = "CREATE", 
-                Description = "Add Data", 
-                Label = "Create",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
-            Permission read = new Permission() 
-            { 
-                Title = "READ", 
-                Description = "Get Data", 
-                Label = "Read",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
-            Permission update = new Permission() 
-            { 
-                Title = "UPDATE", 
-                Description = "Modify Data",
-                Label = "Update",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
-            Permission delete = new Permission() 
-            { 
-                Title = "DELETE", 
-                Description = "Remove Data", 
-                Label = "Delete",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
 
             Role admin = new Role() 
             { 
                 Title = "ADMIN", 
                 Description = "Create, Read, Update, and Delete Permissions", 
                 Label = "Admin",
-                Permissions = new List<Permission>() { create, read, update, delete },
+                Create = true,
+                Read = true,
+                Update = true,
+                Delete = true,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
@@ -54,7 +25,10 @@ namespace Auth.Data
                 Title = "CONTRIBUTOR",
                 Description = "Create, Read, and Update Permissions",
                 Label = "Data Contributor",
-                Permissions = new List<Permission>() { create, read, update },
+                Create = true,
+                Read = true,
+                Update = true,
+                Delete = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
@@ -63,7 +37,10 @@ namespace Auth.Data
                 Title = "READER",
                 Description = "Read Permission",
                 Label = "Data Reader",
-                Permissions = new List<Permission>() { create },
+                Create = false,
+                Read = true,
+                Update = false,
+                Delete = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };

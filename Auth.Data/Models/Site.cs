@@ -5,6 +5,8 @@
         public Site()
         {
             this.Roles = new HashSet<Role>();
+            this.CreatedAt = DateTime.Now;
+            this.UpdatedAt = DateTime.Now;
         }
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
