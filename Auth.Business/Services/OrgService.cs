@@ -14,10 +14,7 @@ namespace Auth.Business.Services
         }
         public Org Create(string name)
         {
-            Org org = new Org();
-            org.Name = name;
-            org.CreatedAt = DateTime.Now;
-            org.UpdatedAt = DateTime.Now;
+            Org org = new Org(name);
 
             return _unitOfWork.Orgs.Add(org);
         }

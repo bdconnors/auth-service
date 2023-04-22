@@ -6,7 +6,7 @@ namespace Auth.Data.Repositories
 {
     public class OrgRepository : Repository<Org>, IOrgRepository
     {
-        public OrgRepository(Context dbContext) : base(dbContext)
+        public OrgRepository(AuthorizationDbContext dbContext) : base(dbContext)
         {
       
         }

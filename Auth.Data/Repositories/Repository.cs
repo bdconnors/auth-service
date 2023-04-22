@@ -6,9 +6,9 @@ namespace Auth.Data.Repositories
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly Context _dbContext;
+        protected readonly AuthorizationDbContext _dbContext;
 
-        protected Repository(Context context)
+        protected Repository(AuthorizationDbContext context)
         {
             _dbContext = context;
         }

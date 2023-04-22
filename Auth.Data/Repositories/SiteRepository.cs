@@ -5,7 +5,7 @@ namespace Auth.Data.Repositories
 {
     public class SiteRepository : Repository<Site>, ISiteRepository
     {
-        public SiteRepository(Context dbContext) : base(dbContext)
+        public SiteRepository(AuthorizationDbContext dbContext) : base(dbContext)
         {
 
         }

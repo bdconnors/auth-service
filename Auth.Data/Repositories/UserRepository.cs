@@ -5,7 +5,7 @@ namespace Auth.Data.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(Context dbContext) : base(dbContext)
+        public UserRepository(AuthorizationDbContext dbContext) : base(dbContext)
         {
 
         }

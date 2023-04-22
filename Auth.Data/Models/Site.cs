@@ -2,17 +2,17 @@
 {
     public class Site
     {
-        public Site()
-        {
-            this.Roles = new HashSet<Role>();
-            this.CreatedAt = DateTime.Now;
-            this.UpdatedAt = DateTime.Now;
+        public Site(Org org, string name)
+        { 
+            Org = org;
+            Name = name;
+            UserSites = new List<UserSite>();
         }
+        public Site() { }
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public virtual ICollection<Role> Roles { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public string Name { get; set; }
+        public int OrgId { get; set; }
+        public Org Org { get; set; }
+        public ICollection<UserSite> UserSites { get; set; }
     }
 }

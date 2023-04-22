@@ -14,11 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //inject depedencies
-builder.Services.AddScoped<Context>();
+builder.Services.AddScoped<AuthorizationDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IOrgRepository, OrgRepository>();
 builder.Services.AddScoped<ISiteRepository, SiteRepository>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IOrgService, OrgService>();
 builder.Services.AddScoped<ISiteService, SiteService>();

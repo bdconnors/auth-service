@@ -2,19 +2,16 @@
 {
     public class User
     {
-        public User()
+        public User(string email, string pass) 
         {
-            this.Sites = new HashSet<Site>();
-            this.Roles = new HashSet<Role>();
+            Email = email;
+            PasswordHash = pass;
+            UserSites = new List<UserSite>();
         }
+        public User() { }
         public int Id { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public virtual ICollection<Site> Sites { get; set; }
-        public virtual ICollection<Role> Roles { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
+        public ICollection<UserSite> UserSites { get; set; }
     }
 }

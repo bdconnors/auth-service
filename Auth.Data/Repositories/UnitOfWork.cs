@@ -5,23 +5,20 @@ namespace Auth.Data.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly Context _dbContext;
+        private readonly AuthorizationDbContext _dbContext;
         public IOrgRepository Orgs { get; }
         public ISiteRepository Sites { get; }
-        public IRoleRepository Roles { get; }
         public IUserRepository Users { get; }
         public UnitOfWork(
-            Context dbContext,
+            AuthorizationDbContext dbContext,
             IOrgRepository orgRepository,
             ISiteRepository siteRepository,
-            IRoleRepository roleRepository,
             IUserRepository userRepository
         )
         {
             _dbContext = dbContext;
             Orgs = orgRepository;
             Sites = siteRepository;
-            Roles = roleRepository;
             Users = userRepository;
         }
         public int Save()

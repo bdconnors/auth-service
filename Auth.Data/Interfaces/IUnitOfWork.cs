@@ -4,7 +4,6 @@
     {
         IOrgRepository Orgs { get; }
         ISiteRepository Sites { get; }
-        IRoleRepository Roles { get; }
         IUserRepository Users { get; } 
         int Save();
     }
