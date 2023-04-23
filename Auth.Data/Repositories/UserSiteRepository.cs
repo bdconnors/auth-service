@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Auth.Data.Repositories
 {
-    internal class UserSiteRepository: Repository<UserSite>, IUserSiteRepository
+    public class UserSiteRepository: Repository<UserSite>, IUserSiteRepository
     {
         public UserSiteRepository(AuthorizationDbContext dbContext) : base(dbContext)
         {

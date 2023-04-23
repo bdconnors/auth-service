@@ -19,8 +19,10 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IOrgRepository, OrgRepository>();
 builder.Services.AddScoped<ISiteRepository, SiteRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserSiteRepository, UserSiteRepository>();
 builder.Services.AddScoped<IOrgService, OrgService>();
 builder.Services.AddScoped<ISiteService, SiteService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services
     .AddControllersWithViews()
     .AddNewtonsoftJson(options =>

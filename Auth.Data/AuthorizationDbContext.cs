@@ -16,9 +16,12 @@ namespace Auth.Data
         public DbSet<Org> Orgs { get; set; }
         public DbSet<Site> Sites { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserSite> UserSites { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<UserSite>().HasRequired(userSite => userSite.Site);
+            modelBuilder.Entity<UserSite>().HasRequired(userSite => userSite.User);
 
             modelBuilder.Entity<Org>().HasMany(org => org.Sites);
 

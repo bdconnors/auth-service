@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Auth.Data.Models
 {
@@ -18,7 +13,11 @@ namespace Auth.Data.Models
             Site = site;
             Role = role;
         }
-        public UserSite() { }
+        public UserSite() 
+        { 
+
+        }
+
         [Key, Column(Order = 0)]
         public int UserId { get; set; }
         public User User { get; set; }

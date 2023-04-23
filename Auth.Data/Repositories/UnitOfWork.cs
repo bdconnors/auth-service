@@ -9,17 +9,20 @@ namespace Auth.Data.Repositories
         public IOrgRepository Orgs { get; }
         public ISiteRepository Sites { get; }
         public IUserRepository Users { get; }
+        public IUserSiteRepository UserSites { get; }
         public UnitOfWork(
             AuthorizationDbContext dbContext,
             IOrgRepository orgRepository,
             ISiteRepository siteRepository,
-            IUserRepository userRepository
+            IUserRepository userRepository,
+            IUserSiteRepository userSiteRepository
         )
         {
             _dbContext = dbContext;
             Orgs = orgRepository;
             Sites = siteRepository;
             Users = userRepository;
+            UserSites = userSiteRepository;
         }
         public int Save()
         {
