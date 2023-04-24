@@ -11,7 +11,7 @@ namespace Auth.Data.Repositories
         }
         public new async Task<IEnumerable<User>> GetAll()
         {
-            return await _dbContext.Users.Include(user => user.UserSites).ToListAsync();
+            return await _dbContext.Users.Include(user => user.UserSites.Select(us => us.Site)).ToListAsync();
         }
     }
 }
