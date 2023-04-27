@@ -37,6 +37,18 @@ Experimenting with a multi-tenant JWT authentication service.
 
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/api1.png)
 
+7. Create a Site by sending a POST request to https://localhost:7267/api/site with a "name" and "orgId" in the request body and Content-Type header set to "application/json"
+
+![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/api2.png)
+
+8. Create a User by sending a POST request to https://localhost:7267/api/user with a "firstName", "lastName", "email", "password" and "mobileNumber" in the request body and Content-Type header set to "application/json"
+
+![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/api3.png)
+
+8. Register a UserSite by sending a POST request to https://localhost:7267/api/user/site with a "userId", "siteId", and "role" in the request body and Content-Type header set to "application/json"
+
+![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/api4.png)
+
 # Database Design
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/erd.png)
 
