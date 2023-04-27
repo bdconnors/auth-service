@@ -11,14 +11,14 @@ Experimenting with a multi-tenant JWT authentication service.
 
 3. Entity Framework 6
 
+# Local Setup
+
+1. Open TCP Ports in SQL Server Configuration Manager
+![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/mssql1.png)
+
 # Database Design
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/erd.png)
 
 # Architecture Design
 ![Architecture Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/design.png)
 
-# Local Setup
-
-
-
-1. Open TCP Ports in 
