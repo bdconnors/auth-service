@@ -9,7 +9,7 @@ namespace Auth.Business.Interfaces
 {
     public interface IUserService
     {
-        User Register(string email, string password);
+        User Register(string email, string password, string? mobileNumber);
         Task<User> RegisterUserSite(int userId, int siteId, string role);
         Task<IEnumerable<User>> GetAll();
     }
