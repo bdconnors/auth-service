@@ -12,7 +12,7 @@ Experimenting with a multi-tenant JWT authentication service.
 3. Entity Framework 6
 
 # Database Design
-![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Imageerd.png)
+![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/erd.png)
 
 # Architecture Design
 ![Architecture Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/design.png)
