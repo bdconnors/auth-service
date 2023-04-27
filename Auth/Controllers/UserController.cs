@@ -25,7 +25,7 @@ namespace Auth.Controllers
         [HttpPost]
         public User RegisterUser([FromBody] RegisterUserDto data)
         {
-            return _service.Register(data.Email, data.Password, data.MobileNumber);
+            return _service.Register(data.FirstName, data.LastName, data.Email, data.Password, data.MobileNumber);
         }
 
         [HttpPost]

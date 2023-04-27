@@ -13,10 +13,10 @@ namespace Auth.Business.Services
             _unitOfWork = unitOfWork;
         }
 
-        public User Register(string email, string password, string? mobileNumber)
+        public User Register(string firstName, string lastName, string email, string password, string? mobileNumber)
         {
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
-            User user = new User(email, passwordHash, mobileNumber);
+            User user = new User(firstName, lastName, email, passwordHash, mobileNumber);
 
             return _unitOfWork.Users.Add(user);
         }

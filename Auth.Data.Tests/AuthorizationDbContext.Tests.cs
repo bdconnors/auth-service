@@ -14,7 +14,7 @@ namespace Auth.Data.Tests
 
         public AuthorizationDbContextTests()
         {
-            var connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=MyDatabase;Integrated Security=True;MultipleActiveResultSets=True;";
+            var connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Database;Integrated Security=True;MultipleActiveResultSets=True;";
             var database = new AuthorizationDbContext(connectionString);
             _context = database;
         }
@@ -24,7 +24,9 @@ namespace Auth.Data.Tests
         {
             using (_context)
             {
-                var org = new Org { Name = "TestOrg" };
+                var org = new Org { 
+                    Name = "TestOrg" 
+                };
                 _context.Set<Org>().Add(org);
                 _context.SaveChanges();
 
@@ -32,7 +34,11 @@ namespace Auth.Data.Tests
                 Assert.NotNull(savedOrg);
                 Assert.Equal("TestOrg", savedOrg.Name);
 
-                var site = new Site { Name = "TestSite", OrgId = org.Id, Org = org };
+                var site = new Site { 
+                    Name = "TestSite", 
+                    OrgId = org.Id, 
+                    Org = org 
+                };
                 _context.Set<Site>().Add(site);
                 _context.SaveChanges();
 
@@ -40,7 +46,13 @@ namespace Auth.Data.Tests
                 Assert.NotNull(savedSite);
                 Assert.Equal("TestSite", savedSite.Name);
 
-                var user = new User { Email = "test@test.com", PasswordHash = "supersecurepass123#$", MobileNumber = "5555555555" };
+                var user = new User { 
+                    Email = "test@test.com", 
+                    FirstName = "Test", 
+                    LastName = "Tester", 
+                    Password = "supersecurepass123#$", 
+                    MobileNumber = "5555555555" 
+                };
                 _context.Set<User>().Add(user);
                 _context.SaveChanges();
 
@@ -48,7 +60,14 @@ namespace Auth.Data.Tests
                 Assert.NotNull(savedUser);
                 Assert.Equal("test@test.com", savedUser.Email);
 
-                var userSite = new UserSite { User = user, UserId = user.Id, Site = site, SiteId = site.Id, Role = "ADMIN" };
+                var userSite = new UserSite {
+                    User = user, 
+                    UserId = user.Id, 
+                    Site = site, 
+                    SiteId = site.Id, 
+                    Role = "ADMIN" 
+                };
+
                 _context.Set<UserSite>().Add(userSite);
                 _context.SaveChanges();
 
