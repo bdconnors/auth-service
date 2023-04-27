@@ -21,15 +21,15 @@ Experimenting with a multi-tenant JWT authentication service.
 
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/mssql2.png)
 
-2. Enable connect and login on MSSQL root service account
+3. Enable connect and login on MSSQL root service account
 
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/mssql3.png)
 
-3. Verify service account can login
+4. Verify service account can login
 
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/mssql4.png)
 
-4. Set your local PC name and service account password in the appsettings.json connection string
+5. Set your local PC name and service account password in the appsettings.json connection string
 
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/mssql5.png)
 
