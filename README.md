@@ -33,6 +33,10 @@ Experimenting with a multi-tenant JWT authentication service.
 
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/mssql5.png)
 
+6. Create an Org by sending a POST request to https://localhost:7267/api/org with a "name" in the request body and Content-Type header set to "application/json"
+
+![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/api1.png)
+
 # Database Design
 ![Entity Relationship Diagram](https://raw.githubusercontent.com/bdconnors/auth-service/main/Image/erd.png)
 
