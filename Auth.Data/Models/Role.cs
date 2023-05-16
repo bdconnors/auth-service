@@ -13,6 +13,7 @@ namespace Auth.Data.Models
             Id = id;
             Name = name;
             RolePermissions = new HashSet<RolePermission>();
+            UserRoles = new HashSet<UserRole>();
         }
 
         public Role() { }
@@ -20,5 +21,6 @@ namespace Auth.Data.Models
         public int Id { get; set; }
         public int Name { get; set; }
         public virtual ICollection<RolePermission> RolePermissions { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

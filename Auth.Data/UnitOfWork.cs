@@ -9,15 +9,29 @@ namespace Auth.Data
         private readonly AuthorizationDbContext _dbContext;
         public ITenantRepository Tenants { get; }
         public IUserRepository Users { get; }
-        public UnitOfWork(
+        public IRoleRepository Roles { get; }
+        public IPermissionRepository Permissions { get; }
+        public IUserRoleRepository UserRoles { get; }
+        public IRolePermissionRepository RolePermissions { get; }
+
+    public UnitOfWork(
             AuthorizationDbContext dbContext,
-            ITenantRepository tenantRepository,
-            IUserRepository userRepository
+            ITenantRepository tenants,
+            IUserRepository users,
+            IRoleRepository roles,
+            IPermissionRepository permissions,
+            IUserRoleRepository userRoles,
+            IRolePermissionRepository rolePermissions
         )
         {
             _dbContext = dbContext;
-            Tenants = tenantRepository;
-            Users = userRepository;
+            Tenants = tenants;
+            Users = users;
+            Roles = roles;
+            Permissions = permissions;
+            UserRoles = userRoles;
+            RolePermissions = rolePermissions;
+
         }
         public int Save()
         {

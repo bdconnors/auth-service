@@ -8,7 +8,16 @@ namespace Auth.Data.Models
 {
     public class Permission
     {
+        public Permission(int id, string name) 
+        {
+            Id = id;
+            Name = name;
+            RolePermissions = new HashSet<RolePermission>();
+
+        }
+        public Permission() { }
         public int Id { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<RolePermission> RolePermissions { get; set; }
     }
 }

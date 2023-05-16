@@ -35,6 +35,8 @@ namespace Auth.Data
             modelBuilder.Entity<User>().HasMany(u => u.UserRoles);
             modelBuilder.Entity<Role>().HasMany(u => u.RolePermissions);
 
+            modelBuilder.Entity<Role>().HasMany(u => u.UserRoles);
+
         }
     }
 }
