@@ -6,25 +6,25 @@ namespace Auth.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class OrgController : ControllerBase
+    public class TenantController : ControllerBase
     {
-        public readonly IOrgService _service;
-        public OrgController(IOrgService service)
+        public readonly ITenantService _service;
+        public TenantController(ITenantService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Org>> GetOrgList()
+        public async Task<IEnumerable<Tenant>> GetTenantList()
         {
             return await _service.GetAll();
         }
 
 
         [HttpPost]
-        public Org CreateOrg([FromBody] CreateOrgDto data)
+        public Tenant CreateTenant([FromBody] string name)
         {
-            return _service.Create(data.Name);
+            return _service.Create(name);
         }
     }
 }

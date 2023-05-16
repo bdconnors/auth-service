@@ -24,13 +24,13 @@ namespace Auth.Data.Tests
         {
             using (_context)
             {
-                var org = new Org { 
+                var org = new Tenant { 
                     Name = "TestOrg" 
                 };
-                _context.Set<Org>().Add(org);
+                _context.Set<Tenant>().Add(org);
                 _context.SaveChanges();
 
-                var savedOrg = _context.Set<Org>().FirstOrDefault(e => e.Id == org.Id);
+                var savedOrg = _context.Set<Tenant>().FirstOrDefault(e => e.Id == org.Id);
                 Assert.NotNull(savedOrg);
                 Assert.Equal("TestOrg", savedOrg.Name);
 

@@ -9,9 +9,5 @@ namespace Auth.Data.Repositories
         public UserRepository(AuthorizationDbContext dbContext) : base(dbContext)
         { 
         }
-        public new async Task<IEnumerable<User>> GetAll()
-        {
-            return await _dbContext.Users.Include(user => user.UserSites.Select(us => us.Site)).ToListAsync();
-        }
     }
 }

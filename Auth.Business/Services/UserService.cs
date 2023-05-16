@@ -12,23 +12,6 @@ namespace Auth.Business.Services
         {
             _unitOfWork = unitOfWork;
         }
-
-        public User Register(string firstName, string lastName, string email, string password, string? mobileNumber)
-        {
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
-            User user = new User(firstName, lastName, email, passwordHash, mobileNumber);
-
-            return _unitOfWork.Users.Add(user);
-        }
-        public async Task<User> RegisterUserSite(int userId, int siteId, string role)
-        {
-            User user = await _unitOfWork.Users.GetById(userId);
-            Site site = await _unitOfWork.Sites.GetById(siteId);
-            UserSite userSite = new UserSite(user, site, role);
-            _unitOfWork.UserSites.Add(userSite);
-
-            return await _unitOfWork.Users.GetById(userId);
-        }
         public async Task<IEnumerable<User>> GetAll()
         {
             return await _unitOfWork.Users.GetAll();

@@ -16,12 +16,9 @@ builder.Services.AddSwaggerGen();
 //inject depedencies
 builder.Services.AddScoped<AuthorizationDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IOrgRepository, OrgRepository>();
-builder.Services.AddScoped<ISiteRepository, SiteRepository>();
+builder.Services.AddScoped<ITenantRepository, TenantRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserSiteRepository, UserSiteRepository>();
-builder.Services.AddScoped<IOrgService, OrgService>();
-builder.Services.AddScoped<ISiteService, SiteService>();
+builder.Services.AddScoped<ITenantService, TenantService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services
     .AddControllersWithViews()

@@ -1,28 +1,23 @@
 ﻿using Auth.Data.Interfaces;
+using Auth.Data.Models;
 using System.Data.Entity;
 
-namespace Auth.Data.Repositories
+namespace Auth.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AuthorizationDbContext _dbContext;
-        public IOrgRepository Orgs { get; }
-        public ISiteRepository Sites { get; }
+        public ITenantRepository Tenants { get; }
         public IUserRepository Users { get; }
-        public IUserSiteRepository UserSites { get; }
         public UnitOfWork(
             AuthorizationDbContext dbContext,
-            IOrgRepository orgRepository,
-            ISiteRepository siteRepository,
-            IUserRepository userRepository,
-            IUserSiteRepository userSiteRepository
+            ITenantRepository tenantRepository,
+            IUserRepository userRepository
         )
         {
             _dbContext = dbContext;
-            Orgs = orgRepository;
-            Sites = siteRepository;
+            Tenants = tenantRepository;
             Users = userRepository;
-            UserSites = userSiteRepository;
         }
         public int Save()
         {

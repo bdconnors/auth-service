@@ -1,6 +1,7 @@
 ﻿
 
 using System.Reflection.Emit;
+using System.Reflection.Metadata;
 using Auth.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,22 +19,22 @@ namespace Auth.Data
         public AuthorizationDbContext(string connString) : base(connString)
         {
         }
-        public DbSet<Org> Orgs { get; set; }
-        public DbSet<Site> Sites { get; set; }
+        public DbSet<Tenant> Tenants { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserSite> UserSites { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<RolePermission> RolePermissions { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnModelCreating(EF6.DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserSite>().HasRequired(userSite => userSite.Site);
-            modelBuilder.Entity<UserSite>().HasRequired(userSite => userSite.User);
+            modelBuilder.Entity<Tenant>().HasMany(t => t.Users);
+            modelBuilder.Entity<Tenant>().HasMany(t => t.Roles);
+            modelBuilder.Entity<Tenant>().HasMany(t => t.Permissions);
 
-            modelBuilder.Entity<Org>().HasMany(org => org.Sites);
+            modelBuilder.Entity<User>().HasMany(u => u.UserRoles);
+            modelBuilder.Entity<Role>().HasMany(u => u.RolePermissions);
 
-            modelBuilder.Entity<Site>().HasMany(site => site.UserSites);
-            modelBuilder.Entity<Site>().HasRequired(site => site.Org);
-
-            modelBuilder.Entity<User>().HasMany(user => user.UserSites);
         }
     }
 }

@@ -2,5 +2,5 @@
 
 namespace Auth.Data.Interfaces
 {
-    public interface IOrgRepository : IRepository<Org> {}
+    public interface IRoleRepository : IRepository<Role> { }
 }

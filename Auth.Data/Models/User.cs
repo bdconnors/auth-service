@@ -9,7 +9,7 @@
             Email = email;
             Password = pass;
             MobileNumber = mobileNumber;
-            UserSites = new List<UserSite>();
+            UserRoles = new HashSet<UserRole>();
         }
         public User() { }
         public int Id { get; set; }
@@ -18,6 +18,6 @@
         public string LastName { get; set; }
         public string Password { get; set; }
         public string? MobileNumber { get; set; }
-        public ICollection<UserSite> UserSites { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

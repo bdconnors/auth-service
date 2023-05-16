@@ -1,5 +1,4 @@
-﻿using Auth.Business.Dto;
-using Auth.Business.Interfaces;
+﻿using Auth.Business.Interfaces;
 using Auth.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,17 +21,5 @@ namespace Auth.Controllers
             return users;
         }
 
-        [HttpPost]
-        public User RegisterUser([FromBody] RegisterUserDto data)
-        {
-            return _service.Register(data.FirstName, data.LastName, data.Email, data.Password, data.MobileNumber);
-        }
-
-        [HttpPost]
-        [Route("site")]
-        public async Task<User> RegisterUserSite([FromBody] RegisterUserSiteDto data)
-        {
-            return await _service.RegisterUserSite(data.UserId, data.SiteId, data.Role);
-        }
     }
 }

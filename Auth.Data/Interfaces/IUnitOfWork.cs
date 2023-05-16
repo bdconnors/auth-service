@@ -2,10 +2,8 @@
 {
     public interface IUnitOfWork : IDisposable
     {
-        IOrgRepository Orgs { get; }
-        ISiteRepository Sites { get; }
+        ITenantRepository Tenants { get; }
         IUserRepository Users { get; }
-        IUserSiteRepository UserSites { get; }
         int Save();
     }
 }
