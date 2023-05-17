@@ -23,7 +23,7 @@ namespace Auth.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<User> GetTenantList(int id)
+        public async Task<User> GetUser(int id)
         {
             return await _service.Get(id);
         }

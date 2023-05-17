@@ -21,6 +21,12 @@ namespace Auth.Controllers
             return await _service.GetAll();
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<Tenant> GetTenant(int id)
+        {
+            return await _service.Get(id);
+        }
 
         [HttpPost]
         public Tenant CreateTenant([FromBody] CreateTenantDto body)
