@@ -1,3 +1,4 @@
+using Auth.Business.Dto;
 using Auth.Business.Interfaces;
 using Auth.Data.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,9 @@ namespace Auth.Controllers
 
 
         [HttpPost]
-        public Tenant CreateTenant([FromBody] string name)
+        public Tenant CreateTenant([FromBody] CreateTenantDto body)
         {
-            return _service.Create(name);
+            return _service.Create(body.Name);
         }
     }
 }

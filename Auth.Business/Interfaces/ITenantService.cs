@@ -6,5 +6,6 @@ namespace Auth.Business.Interfaces
     {
         Tenant Create(string name);
         Task<IEnumerable<Tenant>> GetAll();
+        Task<Tenant> Get(int id);
     }
 }

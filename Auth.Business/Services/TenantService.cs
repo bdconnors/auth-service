@@ -14,10 +14,23 @@ namespace Auth.Business.Services
         }
         public Tenant Create(string name)
         {
-            Tenant tenant = new Tenant(name);
-
-            return _unitOfWork.Tenants.Add(tenant);
+            try
+            {
+                Tenant tenant = new Tenant(name);
+                tenant = _unitOfWork.Tenants.Add(tenant);
+                _unitOfWork.Tenants.Save();
+                return tenant;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+        public Task<Tenant> Get(int id)
+        {
+            return _unitOfWork.Tenants.GetById(id);
+        }
+
         public async Task<IEnumerable<Tenant>> GetAll()
         {
             return await _unitOfWork.Tenants.GetAll();

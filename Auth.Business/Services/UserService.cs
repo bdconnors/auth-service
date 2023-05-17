@@ -16,5 +16,9 @@ namespace Auth.Business.Services
         {
             return await _unitOfWork.Users.GetAll();
         }
+        public Task<User> Get(int id)
+        {
+            return _unitOfWork.Users.GetById(id);
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Auth.Business.Interfaces
     public interface IUserService
     {
         Task<IEnumerable<User>> GetAll();
+        Task<User> Get(int id);
     }
 }

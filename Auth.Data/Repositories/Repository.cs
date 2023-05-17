@@ -27,7 +27,6 @@ namespace Auth.Data.Repositories
         public T Add(T entity)
         {
             var ent = _dbContext.Set<T>().Add(entity);
-            _dbContext.SaveChanges();
             return ent;
         }
         public void Delete(T entity)
@@ -37,6 +36,10 @@ namespace Auth.Data.Repositories
         public void Update(T entity)
         {
             _dbContext.Set<T>().AddOrUpdate(entity);
+        }
+        public void Save() 
+        {
+            _dbContext.SaveChanges();
         }
     }
 }
