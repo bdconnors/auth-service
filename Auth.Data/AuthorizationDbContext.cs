@@ -1,5 +1,6 @@
 ﻿
 
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Reflection.Emit;
 using System.Reflection.Metadata;
 using Auth.Data.Models;
@@ -33,9 +34,10 @@ namespace Auth.Data
             modelBuilder.Entity<Tenant>().HasMany(t => t.Permissions);
 
             modelBuilder.Entity<User>().HasMany(u => u.UserRoles);
-            modelBuilder.Entity<Role>().HasMany(u => u.RolePermissions);
+            modelBuilder.Entity<Role>().HasMany(r => r.RolePermissions);
 
-            modelBuilder.Entity<Role>().HasMany(u => u.UserRoles);
+            modelBuilder.Entity<Role>().HasMany(r => r.UserRoles);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
         }
     }

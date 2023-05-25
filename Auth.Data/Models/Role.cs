@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,11 @@ namespace Auth.Data.Models
         public Role() { }
 
         public int Id { get; set; }
+ 
         public int Name { get; set; }
+        [ForeignKey("Tenant")]
+        public int TenantId { get; set; }
+        public Tenant Tenant { get; set; }
         public virtual ICollection<RolePermission> RolePermissions { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }
     }
