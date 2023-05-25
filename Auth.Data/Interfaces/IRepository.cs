@@ -6,6 +6,7 @@
         Task<IEnumerable<T>> GetAll();
         IEnumerable<T> Filter(Func<T,bool> predicate);
         T Add(T entity);
+        IEnumerable<T> AddMany(IEnumerable<T> entities);
         void Delete(T entity);
         void Update(T entity);
         void Save();

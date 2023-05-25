@@ -9,7 +9,7 @@ namespace Auth.Data.Models
 {
     public class Role
     {
-        public Role(int id, int name) 
+        public Role(int id, string name) 
         { 
             Id = id;
             Name = name;
@@ -21,7 +21,7 @@ namespace Auth.Data.Models
 
         public int Id { get; set; }
  
-        public int Name { get; set; }
+        public string Name { get; set; }
         [ForeignKey("Tenant")]
         public int TenantId { get; set; }
         public Tenant Tenant { get; set; }

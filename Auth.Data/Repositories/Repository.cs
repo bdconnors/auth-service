@@ -29,6 +29,10 @@ namespace Auth.Data.Repositories
             var ent = _dbContext.Set<T>().Add(entity);
             return ent;
         }
+        public IEnumerable<T> AddMany(IEnumerable<T> entities)
+        {
+            return _dbContext.Set<T>().AddRange(entities);
+        }
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
