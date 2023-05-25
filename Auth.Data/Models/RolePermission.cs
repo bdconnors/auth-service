@@ -16,6 +16,8 @@ namespace Auth.Data.Models
            PermissionId = permId;
         }
 
+        public RolePermission(){}
+
         [Key, Column(Order = 0)]
         public int RoleId { get; set; }
 
