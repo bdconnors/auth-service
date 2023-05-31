@@ -122,7 +122,10 @@ namespace Auth.Business.Services
                 readerRead
             };
 
-            return _unitOfWork.RolePermissions.AddMany(rolePerms);
+            rolePerms = _unitOfWork.RolePermissions.AddMany(rolePerms);
+            _unitOfWork.RolePermissions.Save();
+
+            return rolePerms;
         }
     }
 }
