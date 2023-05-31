@@ -1,4 +1,5 @@
-﻿using Auth.Data.Models;
+﻿using Auth.Business.Dto;
+using Auth.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Auth.Business.Interfaces
     {
         Task<IEnumerable<User>> GetAll();
         Task<User> Get(int id);
+        User Add(CreateUserDto data);
     }
 }

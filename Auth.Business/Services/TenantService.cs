@@ -13,7 +13,7 @@ namespace Auth.Business.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public Tenant Create(string name)
+        public Tenant Add(string name)
         {
             try
             {

@@ -31,7 +31,7 @@ namespace Auth.Controllers
         [HttpPost]
         public Tenant CreateTenant([FromBody] CreateTenantDto body)
         {
-            return _service.Create(body.Name);
+            return _service.Add(body.Name);
         }
     }
 }

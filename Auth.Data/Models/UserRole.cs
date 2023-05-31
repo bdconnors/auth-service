@@ -10,6 +10,12 @@ namespace Auth.Data.Models
 {
     public class UserRole
     {
+        public UserRole(int userId, int roleId) 
+        { 
+            UserId = userId;
+            RoleId = roleId;
+        }
+        public UserRole() { }
         [Key, Column(Order = 0)]
         public int UserId { get; set; }
 

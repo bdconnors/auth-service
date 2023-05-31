@@ -1,4 +1,5 @@
-﻿using Auth.Business.Interfaces;
+﻿using Auth.Business.Dto;
+using Auth.Business.Interfaces;
 using Auth.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,13 @@ namespace Auth.Controllers
         public async Task<User> GetUser(int id)
         {
             return await _service.Get(id);
+        }
+
+        [HttpPost]
+        public async Task<User> CreateUser([FromBody] CreateUserDto body)
+        {
+            User user = _service.Add(body);
+            return user;
         }
 
     }

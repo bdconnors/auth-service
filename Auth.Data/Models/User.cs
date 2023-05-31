@@ -1,9 +1,12 @@
-﻿namespace Auth.Data.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Auth.Data.Models
 {
     public class User
     {
-        public User(string firstName, string lastName, string email, string pass, string? mobileNumber) 
+        public User(int tenantId, string firstName, string lastName, string email, string pass, string? mobileNumber) 
         {
+            TenantId = tenantId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
@@ -19,5 +22,8 @@
         public string Password { get; set; }
         public string? MobileNumber { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }
+        [ForeignKey("Tenant")]
+        public int TenantId { get; set; }
+        public Tenant Tenant { get; set; }
     }
 }
