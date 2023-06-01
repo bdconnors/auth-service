@@ -43,7 +43,7 @@ namespace Auth.Business.Services
         }
 
 
-        private IEnumerable<Role> AddDefaultRoles(int tenantId)
+        public IEnumerable<Role> AddDefaultRoles(int tenantId)
         {
             Role admin = new Role();
             admin.TenantId = tenantId;
@@ -64,7 +64,7 @@ namespace Auth.Business.Services
             return roles;
 
         }
-        private IEnumerable<Permission> AddDefaultPermissions(int tenantId)
+        public IEnumerable<Permission> AddDefaultPermissions(int tenantId)
         {
             Permission create = new Permission();
             create.Name = "CREATE";
@@ -88,7 +88,7 @@ namespace Auth.Business.Services
 
             return permissions;
         }
-        private IEnumerable<RolePermission> AddDefaultRolePermissions(IEnumerable<Role> roles, IEnumerable<Permission> permissions)
+        public IEnumerable<RolePermission> AddDefaultRolePermissions(IEnumerable<Role> roles, IEnumerable<Permission> permissions)
         {
             Role admin = roles.Where(r => r.Name == "ADMIN").First();
             Role contributor = roles.Where(r => r.Name == "CONTRIBUTOR").First();

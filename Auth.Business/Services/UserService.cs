@@ -41,7 +41,7 @@ namespace Auth.Business.Services
                 throw;
             }
         }
-        private ICollection<UserRole> MakeUserRoles(int userId, IEnumerable<int> roleIds) 
+        public ICollection<UserRole> MakeUserRoles(int userId, IEnumerable<int> roleIds) 
         { 
             ICollection<UserRole> result = new HashSet<UserRole>();
 

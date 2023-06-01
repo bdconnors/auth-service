@@ -13,5 +13,6 @@ namespace Auth.Business.Interfaces
         Task<IEnumerable<User>> GetAll();
         Task<User> Get(int id);
         User Add(CreateUserDto data);
+        ICollection<UserRole> MakeUserRoles(int userId, IEnumerable<int> roleIds);
     }
 }
